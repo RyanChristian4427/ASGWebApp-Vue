@@ -5,6 +5,7 @@ import alert from '@/store/modules/alert';
 import authentication from '@/store/modules/authentication';
 import users from '@/store/modules/users';
 import app from '@/store/modules/material-app';
+import createPersistedState from 'vuex-persistedstate';
 
 Vue.use(Vuex);
 
@@ -15,4 +16,9 @@ export const store = new Vuex.Store({
         users,
         app,
     },
+    plugins: [
+        createPersistedState({
+            paths: ['authentication', 'app'],
+        }),
+    ],
 });
