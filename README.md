@@ -2,7 +2,9 @@
 
 This project is a rewrite of my ASGWebApp that was a client project from university. For that project, we met with a client who requested a web server and a relational database to replace his previous booking and progress system that was handled in Excel. The project we built was written in Spring Boot using MySQL as the database system. However, I had wanted to try out other technologies, and redoing a project was the simplest solution.
 
-Here I am using ASP.NET Core as the framework, and PostgreSQL as the database. In addition, this project is being written with as a RESTful API (somehting I've never done before) so that it can be integrated with a mobile app (undecided as to whether it should be plain Android or Xamarin) and consumed with a Vue.js SPA. 
+Here I am using Vue.js as an SPA to consume an API I've written in C#. All state is managed with Vuex, and the project is built upon the Vue-CLI, so it includes resources like Webpack and TypeScript, and the styling is done in SCSS. 
+
+This SPA will be updated in conjuction while the API back end is being built.
 
 ## Getting Started
 
@@ -13,28 +15,19 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-.Net Core 2.2
-PostgreSQL
+NPM
 ```
 
 ### Running
 
-To run the web server on localhost, you will need a local PostgreSQL Database and .Net Core 2.2 installed. I have my PostgreSQL DB running on port 5432 using the credentials user: postgres password: admin, though these settings can be tweaked in ~/Persistence/Configuration/DatabaseConnectionHandler.cs.
-
-With a DB running, navigate to ~/Web and run
-
-```
-dotnet run
-```
-
-and then to ~/Web/Vue 
+To run the web server on localhost, you will need to run from the root directory: 
 
 ```
 npm install
 npm run serve
 ```
 
-Navigate to https://localhost:8080/login in your browser of choice to begin using the system. As of now, the content is quite limited as I continue to learn how to really use APIs, SPAs, different tools like Webpack and Axios, and lite languages like SASS and Typescript.
+Navigate to https://localhost:8080/login in your browser of choice to begin using the system. However, without a back end, this is an extremely limited tool. For full functionality, download and follow the instructions in the README to start the web API from [ASGWebApp-ASP](https://github.com/RyanChristian4427/ASGWebApp-ASP). As of now, the content is quite limited as I continue to learn how to fully use the wide range of tools needed to build an effective front end.
 
 ## Authors
 
@@ -43,7 +36,3 @@ Navigate to https://localhost:8080/login in your browser of choice to begin usin
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Thanks to Luke for setting up a template for me to learn and build from. Super grateful.
