@@ -88,8 +88,7 @@
             },
             onClick() {
                 this.$store.dispatch('authentication/logout');
-                this.$router.push({name: 'Dashboard'});
-                location.reload();
+                this.$router.push({name: 'Login'});
             },
             onResponsiveInverted() {
                 if (window.innerWidth < 991) {

@@ -1,14 +1,15 @@
 <template>
     <v-app>
-        <core-filter v-if="showLayout"></core-filter>
+<!--        <core-filter v-if="showLayout"></core-filter>-->
 
-        <core-toolbar v-if="showLayout"></core-toolbar>
+<!--        <core-toolbar v-if="showLayout"></core-toolbar>-->
 
-        <core-drawer v-if="showLayout"></core-drawer>
+<!--        <core-drawer v-if="showLayout"></core-drawer>-->
 
-        <core-view></core-view>
+<!--        <core-view></core-view>-->
 
-        <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
+<!--        <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>-->
+        <router-view></router-view>
     </v-app>
 </template>
 
