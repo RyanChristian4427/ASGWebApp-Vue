@@ -65,8 +65,18 @@
             }
         },
         created() {
-           this.items = this.populateCandidatesTable.items;
+            if (!!this.populateCandidatesTable.items) {
+                this.items = this.populateCandidatesTable.items;
+                return;
+            }
+            this.fetchAndPopulateState();
         },
+        methods: {
+            async fetchAndPopulateState() {
+                await this.$store.dispatch('candidates/fetchCandidates');
+                this.items = this.populateCandidatesTable.items;
+            }
+        }
     };
 </script>
 

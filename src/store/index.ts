@@ -18,7 +18,7 @@ export const store = new Vuex.Store({
     },
     plugins: [
         createPersistedState({
-            paths: ['authentication', 'candidates', 'app'],
+            paths: ['authentication', 'app'],
         }),
     ],
 });
