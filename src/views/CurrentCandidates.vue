@@ -11,8 +11,8 @@
                         <template slot="items" slot-scope="{ item }">
                             <td>{{ item.name }}</td>
                             <td>{{ item.referenceNumber }}</td>
-                            <td>{{ item.location }}</td>
-                            <td>{{ item.stage }}</td>
+                            <td>{{ item.preferredCourseLocation }}</td>
+                            <td>{{ item.lastCompletedStage }}</td>
                         </template>
                     </v-data-table>
                 </material-card>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex';
     export default {
         // name: 'CurrentCandidates',
         data: () => ({
@@ -39,53 +40,33 @@
                 {
                     sortable: true,
                     text: 'Location',
-                    value: 'location',
+                    value: 'preferredCourseLocation',
                 },
                 {
                     sortable: true,
                     text: 'Stage',
-                    value: 'stage',
+                    value: 'lastCompletedStage',
                 },
             ],
             items: [
                 {
-                    name: 'Dakota Rice',
-                    referenceNumber: 'ASG-19-04-001',
-                    location: 'Cardiff',
-                    stage: 'Ground School Exam',
+                    name: 'Error Loading User Data',
+                    referenceNumber: '',
+                    preferredCourseLocation: '',
+                    lastCompletedStage: '',
                 },
-                {
-                    name: 'Minerva Hooper',
-                    referenceNumber: 'ASG-19-04-002',
-                    location: 'Somerset',
-                    stage: 'Flight Assessment',
-                },
-                {
-                    name: 'Sage Rodriguez',
-                    referenceNumber: 'ASG-19-05-001',
-                    location: 'Aberdeenshire',
-                    stage: 'Operator\'s Manual',
-                },
-                {
-                    name: 'Philip Chanley',
-                    referenceNumber: 'ASG-19-05-002',
-                    location: 'Cardiff',
-                    stage: 'Ground School',
-                },
-                {
-                    name: 'Doris Greene',
-                    referenceNumber: 'ASG-19-05-003',
-                    location: 'Somerset',
-                    stage: 'Assign Course',
-                },
-                {
-                    name: 'Mason Porter',
-                    referenceNumber: 'ASG-19-05-004',
-                    location: 'Aberdeenshire',
-                    stage: 'Make Recommendation',
-                },
+
             ],
         }),
+        computed: {
+            ...mapGetters('candidates', ['currentCandidates']),
+            populateCandidatesTable() {
+                return this.currentCandidates;
+            }
+        },
+        created() {
+           this.items = this.populateCandidatesTable.items;
+        },
     };
 </script>
 
