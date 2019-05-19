@@ -51,7 +51,6 @@
 //     },
 // };
 
-
 import ApiService from '@/plugins/api.axios';
 import JwtService from '@/services/jwt-service';
 
@@ -105,15 +104,15 @@ const actions = {
     //             });
     //     });
     // },
-    checkAuth(context: any) {
-        const token = JwtService.getToken();
-        if (!!token) {
-            // ApiService.setHeader();
-            context.commit('setAuth', token);
-        } else {
-            context.commit('purgeAuth');
-        }
-    },
+    // checkAuth(context: any) {
+    //     const token = JwtService.getToken();
+    //     if (!!token) {
+    //         // ApiService.setHeader();
+    //         context.commit('setAuth', token);
+    //     } else {
+    //         context.commit('purgeAuth');
+    //     }
+    // },
     // updateUser(context, payload) {
     //     const { email, username, password, image, bio } = payload;
     //     const user = {
