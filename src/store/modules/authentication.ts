@@ -74,7 +74,7 @@ const actions = {
     login(context: any, credentials: any) {
         return new Promise((resolve) => {
             context.commit('authRequest');
-            ApiService.post('auth/authenticate', credentials)
+            ApiService.post('auth/login', credentials)
                 .then(({ data }) => {
                     context.commit('setAuth', data.jwtToken);
                     resolve(data);

@@ -1,4 +1,5 @@
-import Login from '@/views/Login.vue';
+import Login from '@/views/authentication/Login.vue';
+import Register from '@/views/authentication/Register.vue';
 import DashboardLayout from '@/components/layouts/Dashboard.vue';
 
 export default [
@@ -6,6 +7,11 @@ export default [
         path: '/login',
         name: 'Login',
         component: Login,
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: Register,
     },
     {
         path: '/',

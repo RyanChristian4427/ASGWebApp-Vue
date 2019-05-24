@@ -5,7 +5,7 @@ module.exports = {
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
             "Access-Control-Allow-Origin": "*",
         },
-        host: "localhost",
+        // host: "localhost",
         // https: true,
         port: 8080,
     },
