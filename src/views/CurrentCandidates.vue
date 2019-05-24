@@ -12,7 +12,7 @@
                             <td>{{ item.name }}</td>
                             <td>{{ item.referenceNumber }}</td>
                             <td>{{ item.preferredCourseLocation }}</td>
-                            <td>{{ item.lastCompletedStage }}</td>
+                            <td>{{ convertToEnum(item.lastCompletedStage) }}</td>
                         </template>
                     </v-data-table>
                 </material-card>
@@ -23,6 +23,7 @@
 
 <script>
     import { mapGetters } from 'vuex';
+    import {LastCompletedStage} from "../models/CandidateLastCompletedStage";
     export default {
         // name: 'CurrentCandidates',
         data: () => ({
@@ -75,11 +76,10 @@
             async fetchAndPopulateState() {
                 await this.$store.dispatch('candidates/fetchCandidates');
                 this.items = this.populateCandidatesTable.items;
+            },
+            convertToEnum(x) {
+                return LastCompletedStage[x];
             }
         }
     };
 </script>
-
-<style scoped>
-
-</style>

@@ -1,0 +1,16 @@
+export enum LastCompletedStage {
+    '1: Registered',
+    '2: Paid',
+    '3: Assigned Course',
+    '4: Course Joining Instructions',
+    '5: Ground School Syllabus',
+    '6: Ground School Exam',
+    '7: Approve Exam Results',
+    '8: Return Exam Results',
+    '9: Given Ops Manual Template',
+    '10: Returned Ops Manual',
+    '11: Insurance Check',
+    '12: Flight Assessment',
+    '13: CAA PfCO Recommendation',
+    '14: Course Review',
+}

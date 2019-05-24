@@ -9,4 +9,7 @@ module.exports = {
         // https: true,
         port: 8080,
     },
+    // chainWebpack: config => {
+    //     config.plugins.delete("hmr");
+    // }
 };
