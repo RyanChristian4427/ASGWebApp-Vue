@@ -182,9 +182,7 @@
     import { mapGetters } from 'vuex';
     export default {
         computed: {
-            ...mapGetters('authentication', [
-                'currentUser',
-                ]),
+            ...mapGetters('authentication', ['currentUser']),
             user() {
                 return this.currentUser;
             },
