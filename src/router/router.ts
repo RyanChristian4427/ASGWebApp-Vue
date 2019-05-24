@@ -23,5 +23,8 @@ router.beforeEach((to, from, next) => {
     return next('/login');
   }
 
+  // TODO This won't activate if a page is refreshed
+  document.title = to.meta.title;
+
   next();
 });
