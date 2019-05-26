@@ -24,7 +24,7 @@
                                 </v-flex>
                                 <v-flex xs6 md6>
                                     <v-text-field label="Confirm Password" class="blue-input" v-model="confirmPassword"
-                                                  required></v-text-field>
+                                                  :type="'password'" required></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 text-xs-right>
                                     <v-btn class="mx-0 font-weight-light" color="blue" type="submit">Register</v-btn>
@@ -54,7 +54,7 @@
         },
         computed: {
             Registering() {
-                return this.$store.state.authentication.status.loggingIn;
+                return this.$store.state.authentication.status.registering;
             },
         },
         created() {
@@ -63,12 +63,15 @@
         },
         methods: {
             async handleSubmit(e) {
-                // this.submitted = true;
-                // const { email, password } = this;
-                // if (email && password) {
-                //     await this.$store.dispatch('authentication/login', { email, password });
-                //     this.$router.push({ name: 'Dashboard' });
-                // }
+                this.submitted = true;
+                const { email, password, confirmPassword } = this;
+                const name = this.firstName + ' ' + this.lastName;
+                if (name && email && password && confirmPassword) {
+                    const response = await this.$store.dispatch('authentication/register', { name, email, password });
+                    if (response.success) {
+                        this.$router.push({ name: 'Login' });
+                    }
+                }
             },
         },
     };
