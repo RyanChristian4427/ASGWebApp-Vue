@@ -23,7 +23,7 @@
 
 <script>
     import { mapGetters } from 'vuex';
-    import {LastCompletedStage} from "../models/CandidateLastCompletedStage";
+    import {LastCompletedStage} from '../models/CandidateLastCompletedStage';
     export default {
         // name: 'CurrentCandidates',
         data: () => ({
@@ -63,7 +63,7 @@
             ...mapGetters('candidates', ['currentCandidates']),
             populateCandidatesTable() {
                 return this.currentCandidates;
-            }
+            },
         },
         created() {
             if (!!this.populateCandidatesTable.items) {
@@ -79,7 +79,7 @@
             },
             convertToEnum(x) {
                 return LastCompletedStage[x];
-            }
-        }
+            },
+        },
     };
 </script>

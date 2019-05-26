@@ -39,19 +39,19 @@ const actions = {
     logout(context: any) {
         context.commit('purgeAuth');
     },
-    // register(context: any, credentials: any) {
-    //     return new Promise((resolve, reject) => {
-    //         ApiService.post('users', { user: credentials })
-    //             .then(({ data }) => {
-    //                 context.commit(SET_AUTH, data.user);
-    //                 resolve(data);
-    //             })
-    //             .catch(({ response }) => {
-    //                 context.commit(SET_ERROR, response.data.errors);
-    //                 reject(response);
-    //             });
-    //     });
-    // },
+    register(context: any, credentials: any) {
+        return new Promise((resolve, reject) => {
+            context.commit('registerRequest');
+            ApiService.post('auth/register', credentials)
+                .then(({ data }) => {
+                    resolve(data);
+                })
+                .catch(({ response }) => {
+                    context.commit('setError', response.data.errors);
+                    reject(response);
+                });
+        });
+    },
     // checkAuth(context: any) {
     //     const token = JwtService.getToken();
     //     if (!!token) {
@@ -83,6 +83,9 @@ const actions = {
 const mutations = {
     authRequest(state: { status: any; }) {
         state.status = { loggingIn: true };
+    },
+    registerRequest(state: { status: any; }) {
+        state.status = { registering: true };
     },
     setError(state: { errors: any; }, error: string) {
         state.errors = error;
