@@ -9,6 +9,7 @@ export default [
         component: Login,
         meta: {
             title: 'ASG Login',
+            public: true,
         },
     },
     {
@@ -17,11 +18,15 @@ export default [
         component: Register,
         meta: {
             title: 'ASG Register',
+            public: true,
         },
     },
     {
         path: '/',
         component: DashboardLayout,
+        meta : {
+            requiresAuth: true,
+        },
         children: [
             {
                 path: '/',
@@ -31,12 +36,14 @@ export default [
                     title: 'ASG Dashboard',
                 },
             },
+
             {
                 path: '/user-profile',
                 name: 'User Profile',
                 component: () => import('@/views/UserProfile.vue'),
                 meta: {
                     title: 'ASG User Profile',
+                    isCandidate: true,
                 },
             },
             {
@@ -45,14 +52,17 @@ export default [
                 component: () => import('@/views/UpdateContactDetails.vue'),
                 meta: {
                     title: 'ASG Update Contact Details',
+                    isCandidate: true,
                 },
             },
+
             {
                 path: '/current-candidates',
                 name: 'Current Candidates',
                 component: () => import('@/views/CurrentCandidates.vue'),
                 meta: {
                     title: 'ASG Current Candidates',
+                    isAdmin: true,
                 },
             },
             {
@@ -61,6 +71,7 @@ export default [
                 component: () => import('@/views/ProcessCandidates.vue'),
                 meta: {
                     title: 'ASG Process Candidates',
+                    isInstructor: true,
                 },
             },
             {
@@ -69,6 +80,7 @@ export default [
                 component: () => import('@/views/ManageUserAccounts.vue'),
                 meta: {
                     title: 'ASG Manage Use Accounts',
+                    isAdmin: true,
                 },
             },
 
