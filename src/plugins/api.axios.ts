@@ -1,8 +1,9 @@
+export const API_URL = 'https://localhost:5000/api/v1/';
+
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import JwtService from '@/services/jwt-service';
-import { API_URL } from '@/configuration/config';
 
 const ApiService = {
   init() {
