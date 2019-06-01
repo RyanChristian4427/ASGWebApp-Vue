@@ -66,8 +66,6 @@
             ],
             userOptions: [
                 'Logout',
-                'Option Two',
-                'Option Three',
             ],
             title: null,
             responsive: false,

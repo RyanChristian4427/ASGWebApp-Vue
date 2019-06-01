@@ -8,7 +8,7 @@
                     <p class="category d-inline-flex font-weight-light">
                         <v-icon color="green" small>mdi-arrow-up</v-icon>
                         <span class="green--text"> {{dailyCourseRegistrationPercentIncrease()}}%</span>&nbsp;
-                        increase in today's sales
+                        increase in today's sign-ups
                     </p>
 
 <!--                    <template slot="actions">-->
@@ -324,6 +324,16 @@
                 return Math.round(100.00 - (this.dailyCourseRegistration.data.series[0][5]
                     / this.dailyCourseRegistration.data.series[0][6]) * 100.00);
             },
+            currentDayOfTheWeek(){
+                const currentDate = new Date().getDay();
+                let daysOfTheWeek = this.dailyCourseRegistration.data.labels;
+                for (let i = 0; i < (7 - currentDate); i++) {
+                    daysOfTheWeek.unshift(daysOfTheWeek.pop());
+                }
+            }
         },
+        beforeMount() {
+            this.currentDayOfTheWeek();
+        }
     };
 </script>
