@@ -324,16 +324,17 @@
                 return Math.round(100.00 - (this.dailyCourseRegistration.data.series[0][5]
                     / this.dailyCourseRegistration.data.series[0][6]) * 100.00);
             },
-            currentDayOfTheWeek(){
+            sortDaysOfWeek() {
                 const currentDate = new Date().getDay();
-                let daysOfTheWeek = this.dailyCourseRegistration.data.labels;
+                const daysOfTheWeek = this.dailyCourseRegistration.data.labels;
                 for (let i = 0; i < (7 - currentDate); i++) {
                     daysOfTheWeek.unshift(daysOfTheWeek.pop());
                 }
-            }
+                console.log(new Date().getMonth());
+            },
         },
         beforeMount() {
-            this.currentDayOfTheWeek();
-        }
+            this.sortDaysOfWeek();
+        },
     };
 </script>

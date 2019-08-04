@@ -8,6 +8,7 @@ module.exports = {
         // host: "localhost",
         // https: true,
         port: 8080,
+        disableHostCheck: true
     },
     // chainWebpack: config => {
     //     config.plugins.delete("hmr");
