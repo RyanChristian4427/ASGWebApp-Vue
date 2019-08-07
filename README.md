@@ -4,7 +4,7 @@ This project is a rewrite of my ASGWebApp that was a client project from univers
 
 Here I am using Vue.js as an SPA to consume an API I've written in C#. All state is managed with Vuex, and the project is built upon the Vue-CLI, so it includes resources like Webpack and TypeScript, and the styling is done in SCSS. 
 
-This SPA will be updated in conjuction while the API back end is being built.
+This SPA will be updated in conjunction while the API back end is being built.
 
 ## Getting Started
 
